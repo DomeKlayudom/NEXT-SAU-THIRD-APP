@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import moneyshare from './../images/moneyshare.png'
 import Images from 'next/image'
-
+import BackButton from "./../component/back";
 const Page = () => {
     const [amount, setAmount] = useState("")
     const [people, setPeople] = useState("")
@@ -13,7 +13,7 @@ const Page = () => {
         const ppl = parseInt(people)
 
         if (isNaN(amt) || isNaN(ppl) || ppl <= 0) {
-            setResult("0.00 บาท")
+            alert("กรุณาใส่จำนวนเงินและจำนวนคนให้ถูกต้อง")
             return
         }
 
@@ -28,7 +28,12 @@ const Page = () => {
     }
 
     return (
+
         <div className="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+            <div className="absolute top-4 left-4">
+                <BackButton label="🔙 กลับ" />
+            </div>
+
             <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-sm w-full transition-all duration-300 transform hover:scale-105">
                 {/* Header */}
                 <div className="text-center mb-6">

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import bmi from "./../images/bmi.png"; // รูป
+import BackButton from "./../component/back";
 
 const Page = () => {
     const [weight, setWeight] = useState("");
@@ -13,7 +14,7 @@ const Page = () => {
         const h = parseFloat(height) / 100;
 
         if (isNaN(w) || isNaN(h) || h <= 0) {
-            setBmiValue("0.00");
+            alert("กรุณาใส่น้ำหนักและส่วนสูงให้ถูกต้อง");
             return;
         }
 
@@ -29,6 +30,9 @@ const Page = () => {
 
     return (
         <div className="flex items-center justify-center min-h-screen p-4 bg-gray-100">
+    <div className="absolute top-4 left-4">
+        <BackButton label="🔙 กลับ" />
+    </div>
             <div className="w-full max-w-sm p-6 bg-white rounded-3xl shadow-2xl border-2 border-gray-200 transform transition-transform duration-500 hover:scale-105">
                 {/* Title and Icon */}
                 <div className="flex flex-col items-center justify-center mb-6">
